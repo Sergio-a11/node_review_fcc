@@ -1,8 +1,11 @@
-//mpn init -y
-//mpn i lodash
+const http = require('http');
 
-const _ = require('lodash');
+//Event emitter API
+const server = http.createServer((req, res) => {
+  server.on('request', (req, res) => {
+    res.end('Welcome');
+  });
+});
+//the server use Event emmiter method from behind to listen changes
 
-const items = [1, [2, [3, [4]]]];
-const newItems = _.flattenDepth(items);
-console.log('🚀 ~ file: app.js:8 ~ items', newItems);
+server.listen(5000);
